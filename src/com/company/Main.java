@@ -26,16 +26,16 @@ public class Main {
         } else if (num == 3) {
             computerChoice = "scissors";
         }
-
         System.out.println("Computer Choice: " + computerChoice);
         return computerChoice;
     }
+
+
     public static String userChoice(String choice) {
         String userChoice = choice;
         Scanner input = new Scanner(System.in);
         userChoice = userChoice.toLowerCase();
         System.out.println("User Choice: " + userChoice);
-
 
         while(!isValidChoice(userChoice)) {
             System.out.print("Invalid input, enter rock, paper, or scissors: ");
@@ -52,6 +52,7 @@ public class Main {
     }
     public static void determineWinner(String computer, String user) {
         String winner;
+        System.out.println("hello from determinewinner method");
         String userChoice = user;
         String computerChoice = computer;
 
@@ -76,7 +77,7 @@ public class Main {
                 winner = "Scissors versus Scissors...Tie!";
             }
         }
-
+        
     }
 
 
@@ -95,7 +96,6 @@ public class Main {
             System.out.println("Computer Choice: " + computerInput);
 
             determineWinner(computerInput, userInput);
-
         }
         //computerChoice();
         //System.out.println("Computer Choice: " + computerChoice);
