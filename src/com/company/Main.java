@@ -11,26 +11,20 @@ import java.util.Scanner;
 
 public class Main {
 
+    // Random Computer Choice
     public static String computerChoice() {
 
-        String computerChoice = "";
+        String[] computerChoiceArray = new String[]{"rock", "paper", "scissors"};
         Random randomNum = new Random();
         int num = randomNum.nextInt(3);
-        num += 1;
+
         System.out.println("Random number: " + num);
 
-        if (num == 1) {
-            computerChoice = "rock";
-        } else if (num == 2) {
-            computerChoice = "paper";
-        } else if (num == 3) {
-            computerChoice = "scissors";
-        }
-        System.out.println("Computer Choice: " + computerChoice);
-        return computerChoice;
+        System.out.println("Computer Choice: " + computerChoiceArray[num]);
+        return computerChoiceArray[num];
     }
 
-
+    // Takes in user Choice
     public static String userChoice(String choice) {
         String userChoice = choice;
         Scanner input = new Scanner(System.in);
@@ -50,7 +44,7 @@ public class Main {
         return (choice.equalsIgnoreCase("rock")) || (choice.equalsIgnoreCase("paper")) || (choice.equalsIgnoreCase("scissors"));
 
     }
-    public static void determineWinner(String computer, String user) {
+    public static String determineWinner(String computer, String user) {
         String winner;
         System.out.println("hello from determinewinner method");
         String userChoice = user;
@@ -69,14 +63,10 @@ public class Main {
         } else if (userChoice == "scissors" && computerChoice == "paper") {
             winner = "Scissors versus Paper..You Win!";
         } else {
-            if (userChoice == "rock" && computerChoice == "rock") {
-                winner = "Rock versus Rock...Tie!";
-            } else if (userChoice == "paper" && computerChoice == "paper") {
-                winner = "Paper versus Paper...Tie!";
-            } else if (userChoice == "scissors" && computerChoice == "scissors") {
-                winner = "Scissors versus Scissors...Tie!";
-            }
+            winner = userChoice + " versus " + computerChoice + "... Ties!"; 
         }
+
+        return winner;
         
     }
 
@@ -95,7 +85,7 @@ public class Main {
 
             System.out.println("Computer Choice: " + computerInput);
 
-            determineWinner(computerInput, userInput);
+            System.out.println(determineWinner(computerInput, userInput));
         }
         //computerChoice();
         //System.out.println("Computer Choice: " + computerChoice);
