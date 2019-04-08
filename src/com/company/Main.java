@@ -31,6 +31,8 @@ public class Main {
         userChoice = userChoice.toLowerCase();
         System.out.println("User Choice: " + userChoice);
 
+        
+
         while(!isValidChoice(userChoice)) {
             System.out.print("Invalid input, enter rock, paper, or scissors: ");
             userChoice = input.nextLine();
